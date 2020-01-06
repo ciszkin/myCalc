@@ -13,9 +13,7 @@ public class ConsoleApp  implements App {
     private UserAction userAction = new UserAction();
     private CalcAction calcAction = new CalcAction();
 
-    public ConsoleApp() {
-        System.out.println();
-    }
+    public ConsoleApp() {   }
 
     public static void main(String[] args) {
         App app = new ConsoleApp();
