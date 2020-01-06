@@ -14,7 +14,7 @@ public class ConsoleApp  implements App {
     private CalcAction calcAction = new CalcAction();
 
     public ConsoleApp() {
-
+        System.out.println();
     }
 
     public static void main(String[] args) {
