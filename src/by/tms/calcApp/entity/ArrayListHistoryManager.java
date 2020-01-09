@@ -1,13 +1,14 @@
 package by.tms.calcApp.entity;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class ArrayListHistoryManager implements HistoryManager {
+public class ArrayListHistoryManager implements HistoryManager, Serializable {
+    private static final long serialVersionUID = 3404936854063961095L;
     private ArrayList<String> history;
 
     public ArrayListHistoryManager() {
         history = new ArrayList<>();
-        //Iterator<String> iterator = history.iterator();
     }
 
     @Override

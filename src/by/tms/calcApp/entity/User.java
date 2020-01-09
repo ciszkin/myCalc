@@ -1,6 +1,9 @@
 package by.tms.calcApp.entity;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
+    private static final long serialVersionUID = -6270421014751285238L;
     private String login;
     private String password;
     private String name;
@@ -12,6 +15,8 @@ public class User {
         this.name = name;
         this.history = new ArrayListHistoryManager();
     }
+
+    public User() {    }
 
     public String getLogin() {
         return login;

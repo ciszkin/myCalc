@@ -5,7 +5,7 @@ import by.tms.calcApp.util.*;
 
 import static by.tms.calcApp.util.Help.show;
 
-public class ConsoleApp  implements App {
+public class ConsoleApp implements App {
     private Reader reader = new ConsoleReader();
     private Writer writer = new ConsoleWriter();
     private boolean isRunning = false;
@@ -28,6 +28,8 @@ public class ConsoleApp  implements App {
             writer.write(s);
         }
 
+        userAction.init();
+
         while(isRunning) {
             update();
         }
@@ -37,6 +39,7 @@ public class ConsoleApp  implements App {
     public void stop() {
 
         isRunning = false;
+        userAction.end();
     }
 
     private void update() {

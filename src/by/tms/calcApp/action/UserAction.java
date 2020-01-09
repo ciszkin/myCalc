@@ -1,6 +1,7 @@
 package by.tms.calcApp.action;
 
 import by.tms.calcApp.entity.User;
+import by.tms.calcApp.service.IOService;
 import by.tms.calcApp.util.ConsoleReader;
 import by.tms.calcApp.util.ConsoleWriter;
 import by.tms.calcApp.util.Reader;
@@ -13,6 +14,15 @@ public class UserAction {
     private Writer writer = new ConsoleWriter();
 
     private AuthService authService = new AuthService();
+    private IOService ioService = new IOService();
+
+    public void init() {
+        authService.setUsers(ioService.loadUsers());
+    }
+
+    public void end() {
+        ioService.saveUsers(AuthService.getUsers());
+    }
 
     public void register() {
 
@@ -26,7 +36,11 @@ public class UserAction {
                 case 0:
                     writer.write("Enter your login:");
                     login = reader.read();
-                    registered++;
+                    if (!"Guest".equals(authService.getUser(login).getName())) {
+                        writer.write("This login is already used! Try another!");
+                    } else {
+                        registered++;
+                    }
                     break;
                 case 1:
                     writer.write("Enter new password:");
@@ -61,6 +75,7 @@ public class UserAction {
     }
 
     public void logIn() {
+
         if (authService.getCurrentUser().getName().equals("Guest")) {
             writer.write("Enter your login:");
             String login = reader.read();
