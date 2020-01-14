@@ -29,11 +29,7 @@ public class AuthService {
     }
 
     public User getUser(String login) {
-        User user = users.getUser(login);
-
-        if(user == null) user = GUEST;
-
-        return user;
+        return users.getUser(login);
     }
 
     public boolean logIn(User user, String pass) {

@@ -36,7 +36,8 @@ public class UserAction {
                 case 0:
                     writer.write("Enter your login:");
                     login = reader.read();
-                    if (!"Guest".equals(authService.getUser(login).getName())) {
+                    //if (!"Guest".equals(authService.getUser(login).getName())) {
+                    if(authService.getUser(login) != null) {
                         writer.write("This login is already used! Try another!");
                     } else {
                         registered++;
